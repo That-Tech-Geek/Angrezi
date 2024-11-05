@@ -84,7 +84,7 @@ st.title("Essay Generator with Google Generative AI")
 st.write("Enter a topic, and this app will generate a detailed essay for you.")
 
 # Input field for API keys and topic
-api_key = st.text_input("Enter your Google API Key", type="password")
+api_key = "AIzaSyBzP_urPbe1zBnZwgjhSlVl-MWtUQMEqQA"
 detection_api_key = st.text_input("Enter your AI Detection API Key", type="password")
 topic = st.text_input("Enter the topic for the essay")
 
