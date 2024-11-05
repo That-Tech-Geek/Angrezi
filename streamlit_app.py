@@ -60,6 +60,7 @@ if st.button("Generate Essay"):
                 f"{statistics_text}\nWrite a detailed essay on the topic: {topic}. "
                 f"Use simple, confident language that shows solid understanding. "
                 f"Make the essay as comprehensive and detailed as possible."
+                f"here are some statistics I believe you'll need:".join(statistics)
             )
             response = model.generate_content(prompt)
 
