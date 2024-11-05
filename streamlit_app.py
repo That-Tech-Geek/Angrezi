@@ -3,7 +3,7 @@ import google.generativeai as genai
 
 # Streamlit App Title and Description
 st.title("Essay Generator with Google Generative AI")
-st.write("Enter a topic, and this app will generate a detailed 5000-word essay for you.")
+st.write("Enter a topic, and this app will generate a detailed essay for you.")
 
 # Input field for API key and topic
 api_key = "AIzaSyBzP_urPbe1zBnZwgjhSlVl-MWtUQMEqQA"
@@ -22,7 +22,7 @@ if st.button("Generate Essay"):
             model = genai.GenerativeModel("gemini-1.5-flash")
 
             # Generate content based on the user-defined topic
-            response = model.generate_content(f"Write a detailed essay on the topic: {topic}")
+            response = model.generate_content(f"Write a detailed essay on the topic: {topic}. Give it a simplistic, student-ish language. The laguage should not be a long-stretch, yet should be showing reasonable confidence, conviction and knowledge of subject.")
 
             # Display the generated content in Streamlit
             if response.text:
