@@ -22,7 +22,7 @@ if st.button("Generate Essay"):
             model = genai.GenerativeModel("gemini-1.5-flash")
 
             # Generate content based on the user-defined topic
-            response = model.generate_content(f"Write a detailed essay on the topic: {topic}")
+            response = model.generate_content(f"Write a detailed essay on the topic: {topic}. Go into every single detail, write it extremely long, AND I MEAN IT.")
 
             # Display the generated content in Streamlit
             if response.text:
