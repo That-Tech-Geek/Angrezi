@@ -59,7 +59,8 @@ if st.button("Generate Essay"):
                 "Use simple, confident language that shows a solid understanding. "
                 "Make the essay as comprehensive and detailed as possible."
             )
-            response = genai.generate_text(prompt=prompt, model="gemini-1.5-flash")
+            # Attempt to generate text with a general `generate()` method
+            response = genai.generate(model="gemini-1.5-flash", prompt=prompt)
 
             # Display the generated essay in Streamlit
             if response and "text" in response:
