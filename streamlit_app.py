@@ -62,7 +62,7 @@ if st.button("Generate Essay"):
                 "Use simple, confident language that shows a solid understanding. "
                 "Make the essay as comprehensive and detailed as possible."
             )
-            response = model.generate_content(prompt=prompt)
+            response = model.predict(prompt)
 
             # Display the generated essay in Streamlit
             if response and hasattr(response, 'text'):
