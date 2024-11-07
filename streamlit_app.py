@@ -42,31 +42,30 @@ if st.button("Generate Essay"):
     else:
         # Fetch statistics related to the topic
         statistics = fetch_statistics(topic, google_cse_id, google_search_api_key)
-        statistics_text = ""
         
         if statistics:
             # Combine statistics into a single string for prompt
             statistics_text = "Here are some statistics related to your topic:\n" + "\n".join(statistics)
+        else:
+            statistics_text = ""
 
         # Configure the Google Generative AI API
         genai.configure(api_key=genai_api_key)
 
         try:
-            # Create the GenerativeModel instance
+            # Create the GenerativeModel instance and set the model name
             model = genai.GenerativeModel("gemini-1.5-flash")
 
             # Generate content based on the user-defined topic, with statistics if available
             prompt = (
                 f"{statistics_text}\nWrite a detailed essay on the topic: {topic}. "
-                f"Use simple, confident language that shows solid understanding. "
-                f"Make the essay as comprehensive and detailed as possible."
-                f"here are some statistics I believe you'll need:".join(statistics)
-                f"This essay needs to be very long, so feel free to go into as much detail as you possibly can"
+                "Use simple, confident language that shows a solid understanding. "
+                "Make the essay as comprehensive and detailed as possible."
             )
-            response = model.generate_content(prompt)
+            response = model.generate_content(prompt=prompt)
 
             # Display the generated essay in Streamlit
-            if response.text:
+            if response and hasattr(response, 'text'):
                 st.subheader("Generated Essay:")
                 st.write(response.text)
             else:
